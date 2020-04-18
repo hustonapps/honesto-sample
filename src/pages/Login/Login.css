@@ -1,0 +1,38 @@
+.LoginPage {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right:  0;
+  bottom: 54px;
+  background: url('../../assets/Background.png') no-repeat 50% 50%;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.LoginContainer {
+  width: 380px;
+  height: 380px;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.LoginContainer .logo {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  padding-top: 87px;
+  box-sizing: border-box;
+  width: 150px;
+  border-bottom: 1px solid #d9dcde;
+  margin: 0 auto 32px;
+}
+
+.LoginContainer .logo h3 {
+  margin-top: 32px;
+  font-size: 1.3rem;
+}
