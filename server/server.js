@@ -5,7 +5,7 @@ const app = express();
 const port = 4040;
 const { connectDb, seedData } = require('./db');
 
-app.use('/static', express.static(path.join(__dirname, '../build/static')));
+app.use('/build/static', express.static(path.join(__dirname, '../build/static')));
 app.get('/app', (req, res) => {
   res.sendFile(path.join(__dirname, '../build', 'index.html'));
 });
