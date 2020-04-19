@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { loadTheme } from 'office-ui-fabric-react';
+import { initializeIcons } from '@uifabric/icons';
 import './index.css';
 import App from './pages/App';
 import Login from './pages/Login';
@@ -21,6 +22,8 @@ loadTheme({
     themeDarker: '#603681',
   },
 });
+
+initializeIcons();
 
 ReactDOM.render(
   <React.StrictMode>

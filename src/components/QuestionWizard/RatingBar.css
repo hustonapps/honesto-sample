@@ -1,0 +1,18 @@
+.RatingBar {
+  display: flex;
+  width: 100%;
+  position: relative;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.RatingBar .rating {
+  width: 74px;
+  position: relative;
+  height: 74px;
+  background-color: #F2F3F4;
+}
+
+.RatingBar .rating.hovered {
+  background-color: #AB61E5;
+}

@@ -1,4 +1,7 @@
 .QuestionWizard {
+  width: 100%;
+  margin: 0 auto;
+  box-sizing: border-box;
 }
 
 .QuestionWizard .QuestionHeader {
@@ -17,4 +20,57 @@
   color: #ACB1B6;
   font-size: 12px;
   line-height: 14px;
+}
+
+.QuestionWizard .QuestionContainer {
+  border-radius: 4px;
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
+  padding: 20px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+
+.QuestionWizard .QuestionContainer .QuestionActions {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 0;
+}
+
+.QuestionWizard .QuestionContainer .progressDescription {
+  display: flex;
+  justify-content: space-between;
+}
+
+.QuestionWizard .QuestionContainer .progressDescription .description label {
+  text-transform: uppercase;
+  color: #031323;
+  font-size: 12px;
+  line-height: 14px;
+  letter-spacing: 0.15em;
+}
+
+.QuestionWizard .QuestionContainer .progressDescription .questionFeedback {
+  display: flex;
+}
+
+.QuestionWizard .QuestionContainer .options p {
+  background-color: #f3f3f4;
+  box-sizing: border-box;
+  padding: 16px;
+  cursor: pointer;
+}
+
+.QuestionWizard .QuestionContainer .options p.selected {
+  background-color: #59636E;
+  color: #fff;
+  box-sizing: border-box;
+  padding: 16px;
+  border: 2px solid
+}
+
+.QuestionWizard .QuestionContainer .options.scale p {
+  background-color: #fff;
+  box-sizing: border-box;
+  padding: 16px;
 }

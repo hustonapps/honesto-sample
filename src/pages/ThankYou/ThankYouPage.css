@@ -1,0 +1,8 @@
+.ThankYouPage h1 small{
+  display: block;
+  font-size: 16px;
+  line-height: 19px;
+  margin-top: 10px;
+  color: #59636E;
+  font-weight: 300;
+}

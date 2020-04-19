@@ -37,9 +37,9 @@ const GiveFeedback = ({ match, history }) => {
 
   return (
     <div className="GiveFeedback">
-      <ActionButton text="Back" onClick={goBack}/>
-      {state.feedback && state.feedback.questions && state.feedback.questions.length > 0 &&
-        <QuestionWizard questions={state.feedback.questions} to={state.feedback.to} />
+      <ActionButton text="Back" onClick={goBack} iconProps={{ iconName: 'ChevronLeft' }}/>
+      {state.feedback && state.feedback.length > 0 &&
+        <QuestionWizard questions={state.feedback} to={state.feedback[0].to} history={history} />
       }
     </div>
   );

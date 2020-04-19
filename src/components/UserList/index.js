@@ -15,13 +15,15 @@ const UserList = ({ feedbacks, history }) => {
 
   return(
     <div className="UserList">
-      {feedbacks.map(feedback => (
-        <UserRow
-          feedback={feedback}
-          onClickFillOut={onClickFillOut}
-          onClickViewSubmission={onClickViewSubmission}
-        />
-      ))}
+      {feedbacks.map(feedback => {
+        return (
+          <UserRow
+            feedback={feedback}
+            onClickFillOut={onClickFillOut}
+            onClickViewSubmission={onClickViewSubmission}
+          />
+        )
+      })}
     </div>
   );
 };

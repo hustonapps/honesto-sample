@@ -1,4 +1,5 @@
 .GiveFeedback {
   display: flex;
   flex-direction: column;
+  margin-bottom: 88px;
 }

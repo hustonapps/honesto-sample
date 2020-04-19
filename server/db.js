@@ -1,7 +1,6 @@
 const mongoose = require('mongoose');
 const { User } = require('./models/User');
 const { Question } = require('./models/Question');
-const { Feedback } = require('./models/Feedback');
 
 const connectDb = () => {
   if (process.env.NODE_ENV === 'localdev') {
@@ -49,120 +48,118 @@ const createUsers = async () => {
   return { jane, chris, nico, nathaniel, denis, paul };
 };
 
-const createQuestions = async () => {
-  const textQuestion = new Question({
-    question: 'How well did I display courage?',
-    type: 'question',
-  });
+const createQuestions = async (users) => {
 
-  await textQuestion.save();
-
-  const optionsQuestion = new Question({
-    question: 'How well did I display courage?',
-    options: {
-      belowAvg: `You may have done one or the following:  Maybe you were mostly quiet in meetings and when you had something on your mind, you brought it to the team afterward. Or, you had feedback that would be valuable to go, but you found it too difficult. Or, you had an opportunity to grow by doing something uncomfortable but you didn’t`,
-      avg: 'You sometimes participate in meetings but you feel that they don’t always bring up important things when they should.',
-      aboveAvg: 'I and others can count on your courage to help the team do what is right.',
+  const questions = [
+    {
+      question: 'How well did I display courage?',
+      questionType: 'question',
     },
-    type: 'options',
-  });
-
-  await optionsQuestion.save();
-
-  const scaleQuestion = new Question({
-    question: 'How well did I display courage?',
-    scaleRating: 0,
-    type: 'scaleRating',
-  });
-
-  await scaleQuestion.save();
-
-  const textQuestion2 = new Question({
-    question: 'How well did I display courage?',
-    answer: 'Lorem ipsum dolor amet mustache knausgaard +1',
-    type: 'question',
-  });
-
-  await textQuestion2.save();
-
-  const optionsQuestion2 = new Question({
-    question: 'How well did I display courage?',
-    options: {
-      belowAvg: `Missed the bar completely`,
-      avg: 'Did exactly what was asked',
-      aboveAvg: 'Blew us away',
+    {
+      question: 'How well did I display courage?',
+      options: {
+        belowAvg: `You may have done one or the following:  Maybe you were mostly quiet in meetings and when you had something on your mind, you brought it to the team afterward. Or, you had feedback that would be valuable to go, but you found it too difficult. Or, you had an opportunity to grow by doing something uncomfortable but you didn’t`,
+        avg: 'You sometimes participate in meetings but you feel that they don’t always bring up important things when they should.',
+        aboveAvg: 'I and others can count on your courage to help the team do what is right.',
+      },
+      questionType: 'options',
     },
-    answer: 'avg',
-    skipeed: true,
-    type: 'options',
-  });
-
-  await optionsQuestion2.save();
-
-  const scaleQuestion2 = new Question({
-    question: 'How well did I display courage?',
-    answer: '7',
-    type: 'scaleRating',
-  });
-
-  await scaleQuestion2.save();
-
-  return [
-    textQuestion,
-    textQuestion2,
-    optionsQuestion,
-    optionsQuestion2,
-    scaleQuestion,
-    scaleQuestion2,
+    {
+      question: 'How well did I display courage?',
+      scaleRatingText: 'Semper fusce purus cras vitae egestas pulvinar inceptos ornare, neque sagittis sodales phasellus suscipit libero nibh convallis, potenti dui magna auctor pellentesque sociis lacus.',
+      questionType: 'scaleRating',
+    },
+    {
+      question: 'How well did I display courage?',
+      answer: 'Lorem ipsum dolor amet mustache knausgaard +1',
+      questionType: 'question',
+    },
+    {
+      question: 'How well did I display courage?',
+      options: {
+        belowAvg: `Missed the bar completely`,
+        avg: 'Did exactly what was asked',
+        aboveAvg: 'Blew us away',
+      },
+      answer: 'avg',
+      skipped: true,
+      questionType: 'options',
+    },
+    {
+      question: 'How well did I display courage?',
+      scaleRatingText: 'Penatibus montes netus phasellus vitae nulla felis potenti facilisi, conubia tellus eu maecenas imperdiet eros libero, sed sodales luctus nascetur quisque ultrices turpis.',
+      answer: '7',
+      questionType: 'scaleRating',
+    }
   ];
-};
 
-const createFeedback = async (users, questions) => {
-  const myFeedback = new Feedback({
-    to: users.jane._id,
-    from: users.chris._id,
-    questions: questions.map(q => q._id),
-  });
+  const questionsAnswered = [
+    {
+      question: 'How well did I display courage?',
+      questionType: 'question',
+      answer: 'Quite well! I was super impressed you fought a grizzly bear!'
+    },
+    {
+      question: 'How well did I display courage?',
+      options: {
+        belowAvg: `You may have done one or the following:  Maybe you were mostly quiet in meetings and when you had something on your mind, you brought it to the team afterward. Or, you had feedback that would be valuable to go, but you found it too difficult. Or, you had an opportunity to grow by doing something uncomfortable but you didn’t`,
+        avg: 'You sometimes participate in meetings but you feel that they don’t always bring up important things when they should.',
+        aboveAvg: 'I and others can count on your courage to help the team do what is right.',
+      },
+      answer: 'avg',
+      questionType: 'options',
+    },
+    {
+      question: 'How well did I display courage?',
+      scaleRatingText: 'Semper fusce purus cras vitae egestas pulvinar inceptos ornare, neque sagittis sodales phasellus suscipit libero nibh convallis, potenti dui magna auctor pellentesque sociis lacus.',
+      questionType: 'scaleRating',
+      answer: '3',
+    },
+    {
+      question: 'How well did I display courage?',
+      answer: 'Lorem ipsum dolor amet mustache knausgaard +1',
+      questionType: 'question',
+    },
+    {
+      question: 'How well did I display courage?',
+      options: {
+        belowAvg: `Missed the bar completely`,
+        avg: 'Did exactly what was asked',
+        aboveAvg: 'Blew us away',
+      },
+      answer: 'avg',
+      skipped: true,
+      questionType: 'options',
+    },
+    {
+      question: 'How well did I display courage?',
+      scaleRatingText: 'Penatibus montes netus phasellus vitae nulla felis potenti facilisi, conubia tellus eu maecenas imperdiet eros libero, sed sodales luctus nascetur quisque ultrices turpis.',
+      answer: '7',
+      questionType: 'scaleRating',
+    }
+  ];
 
-  await myFeedback.save();
+  const createFeedback = async (to, from, feedbackId, questionList) => {
+    await Promise.all(questionList.map(async (q) => {
+      const question = new Question({
+        ...q,
+        feedbackId,
+        to,
+        from,
+      });
 
-  const chrisFeedback = new Feedback({
-    to: users.chris._id,
-    questions: questions.map(q => q._id),
-  });
+      await question.save();
+    }));
+  };
 
-  await chrisFeedback.save();
+  createFeedback('Jane Smith', 'Chris Johnson', new mongoose.Types.ObjectId(), questionsAnswered);
+  createFeedback('Jane Smith', 'Nico Perez', new mongoose.Types.ObjectId(), questionsAnswered);
+  createFeedback('Jane Smith', 'Denis Denison', new mongoose.Types.ObjectId(), questionsAnswered);
 
-  const nicoFeedback = new Feedback({
-    to: users.nico._id,
-    from: users.jane._id,
-    questions: questions.map(q => q._id),
-  });
-
-  await nicoFeedback.save();
-
-  const nathanielFeedback = new Feedback({
-    to: users.nathaniel._id,
-    from: users.jane._id,
-    questions: questions.map(q => q._id),
-  });
-
-  await nathanielFeedback.save();
-
-  const denisFeedback = new Feedback({
-    to: users.denis._id,
-    questions: questions.map(q => q._id),
-  });
-
-  await denisFeedback.save();
-
-  const paulFeedback = new Feedback({
-    to: users.paul._id,
-    from: users.jane._id,
-    questions: questions.map(q => q._id),
-  });
-
-  await paulFeedback.save();
+  createFeedback('Denis Denison', 'Jane Smith', new mongoose.Types.ObjectId(), questions);
+  createFeedback('Nico Perez', 'Jane Smith', new mongoose.Types.ObjectId(), questionsAnswered);
+  createFeedback('Paul Carter', 'Jane Smith', new mongoose.Types.ObjectId(), questions);
+  createFeedback('Nathaniel Moon', 'Jane Smith', new mongoose.Types.ObjectId(), questions);
 };
 
 const seedData = async () => {
@@ -170,8 +167,7 @@ const seedData = async () => {
   if (!users.length) {
     try {
       const users = await createUsers();
-      const questions = await createQuestions();
-      await createFeedback(users, questions);
+      await createQuestions(users);
     } catch (e) {
       console.error(e);
     }

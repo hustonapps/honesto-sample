@@ -1,0 +1,16 @@
+.PageHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center
+}
+
+.PageHeader h1 {
+  font-size: 31px;
+  line-height: 36px;
+}
+
+.PageHeader .publishControls {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end
+}

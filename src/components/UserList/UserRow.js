@@ -11,19 +11,22 @@ const styles = {
   }
 }
 
-const UserRow = ({ feedback, onClickFillOut, onClickViewSubmission }) => (
-  <div className="UserRow" key={feedback._id}>
-    <div className="user">
-      <img src={userAvatarMap[feedback.to.name]} alt={feedback.to.name} />
-      <h3>{feedback.to.name}</h3>
+const UserRow = ({ feedback, onClickFillOut, onClickViewSubmission }) => {
+  const isComplete = feedback.entries.every(q => q.answer);
+  return (
+    <div className="UserRow" key={feedback._id}>
+      <div className="user">
+        <img src={userAvatarMap[feedback.entries[0].to]} alt={feedback.entries[0].to} />
+        <h3>{feedback.entries[0].to}</h3>
+      </div>
+      {!isComplete ? (
+        <PrimaryButton text="Fill Out" styles={styles.button} onClick={onClickFillOut(feedback._id)} />
+      ) : (
+        <DefaultButton text="View Submission" onClick={onClickViewSubmission(feedback._id)} />
+      )}
     </div>
-    {feedback.from !== undefined ? (
-      <PrimaryButton text="Fill Out" styles={styles.button} onClick={onClickFillOut(feedback._id)} />
-    ) : (
-      <DefaultButton text="View Submission" onClick={onClickViewSubmission(feedback._id)} />
-    )}
-  </div>
-);
+  );
+}
 
 UserRow.propTypes = {
   feedback: PropTypes.object.isRequired,

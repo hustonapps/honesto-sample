@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import PageHeader from '../../components/PageHeader';
 import UserList from '../../components/UserList';
 import { getTeamFeedback } from '../../services/api.service';
+import './ThankYouPage.css';
 
-const LandingPage = ({ history }) => {
+const ThankYouPage = ({ history }) => {
   const [state, setState] = useState({
     feedbacks: [],
   });
@@ -14,7 +14,7 @@ const LandingPage = ({ history }) => {
       const { data } = await getTeamFeedback();
       setState({
         ...state,
-        feedbacks: data,
+        feedbacks: data.filter(d => !d.entries.every(d => d.answer)),
       })
     } catch (e) {
       console.error(e);
@@ -26,15 +26,18 @@ const LandingPage = ({ history }) => {
   }, []);
 
   return (
-    <div className="LandingPage">
-      <PageHeader title="Share Feedback"/>
+    <div className="ThankYouPage">
+      <h1>
+      Thank you for sharing your feedback!
+      <small>Continue to give feedback to other team members</small>
+      </h1>
       <UserList feedbacks={state.feedbacks} history={history} />
     </div>
-  );
-}
-
-LandingPage.propTypes = {
-  history: PropTypes.object.isRequired,
+  )
 };
 
-export default LandingPage;
+ThankYouPage.propTypes = {
+   history: PropTypes.object.isRequired,
+};
+
+export default ThankYouPage;

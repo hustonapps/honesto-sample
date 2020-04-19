@@ -6,6 +6,7 @@ import LandingPage from '../LandingPage';
 import MyFeedbackPage from '../MyFeedbackPage';
 import TeamFeedbackPage from '../TeamFeedbackPage';
 import GiveFeedback from '../GiveFeedback';
+import ThankYouPage from '../ThankYou';
 import './App.css';
 
 const App = ({ history, match }) => {
@@ -16,6 +17,7 @@ const App = ({ history, match }) => {
       <Header history={history} />
       <main>
         <Switch>
+          <Route path={`${path}/thankYou`} component={ThankYouPage} />
           <Route path={`${path}/giveFeedback/:feedbackId`} component={GiveFeedback} />
           <Route path={`${path}/myFeedback`} component={MyFeedbackPage} />
           <Route path={`${path}/teamFeedback:feedbackId`} component={TeamFeedbackPage} />
