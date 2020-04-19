@@ -1,8 +1,11 @@
 import React from 'react';
+import PageHeader from '../../components/PageHeader';
+import FeedbackContainer from '../../components/FeedbackContainer';
 
 const TeamFeedbackPage = ({}) => (
   <div>
-    <h1>Team Feedback</h1>
+    <PageHeader title="Team Feedback" showSubmitButton />
+    <FeedbackContainer />
   </div>
 );
 
