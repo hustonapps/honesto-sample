@@ -5,7 +5,7 @@ import JaneAvatar from '../assets/jane.png';
 import './Header.css';
 
 const activeStyle = {
-  borderBottom: '3px solid purple',
+  borderBottom: '3px solid #AB61E5',
 }
 
 const Header = ({ history }) => {

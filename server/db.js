@@ -51,13 +51,14 @@ const createUsers = async () => {
 
 const createQuestions = async () => {
   const textQuestion = new Question({
-    question: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
+    question: 'How well did I display courage?',
     type: 'question',
   });
 
   await textQuestion.save();
 
   const optionsQuestion = new Question({
+    question: 'How well did I display courage?',
     options: {
       belowAvg: `You may have done one or the following:  Maybe you were mostly quiet in meetings and when you had something on your mind, you brought it to the team afterward. Or, you had feedback that would be valuable to go, but you found it too difficult. Or, you had an opportunity to grow by doing something uncomfortable but you didn’t`,
       avg: 'You sometimes participate in meetings but you feel that they don’t always bring up important things when they should.',
@@ -69,7 +70,7 @@ const createQuestions = async () => {
   await optionsQuestion.save();
 
   const scaleQuestion = new Question({
-    question: 'Cupcake ipsum dolor. Sit amet marshmallow topping cheesecake muffin. Halvah croissant candy canes bonbon candy.',
+    question: 'How well did I display courage?',
     scaleRating: 0,
     type: 'scaleRating',
   });
@@ -77,7 +78,7 @@ const createQuestions = async () => {
   await scaleQuestion.save();
 
   const textQuestion2 = new Question({
-    question: 'Nori grape silver beet broccoli kombu beet greens fava bean potato quandong celery. Bunya nuts black-eyed pea prairie turnip leek lentil turnip greens parsnip.',
+    question: 'How well did I display courage?',
     answer: 'Lorem ipsum dolor amet mustache knausgaard +1',
     type: 'question',
   });
@@ -85,7 +86,7 @@ const createQuestions = async () => {
   await textQuestion2.save();
 
   const optionsQuestion2 = new Question({
-    question: 'How did I do with the office cupcakes?',
+    question: 'How well did I display courage?',
     options: {
       belowAvg: `Missed the bar completely`,
       avg: 'Did exactly what was asked',
@@ -99,7 +100,7 @@ const createQuestions = async () => {
   await optionsQuestion2.save();
 
   const scaleQuestion2 = new Question({
-    question: 'Cupcake ipsum dolor. Sit amet marshmallow topping cheesecake muffin. Halvah croissant candy canes bonbon candy.',
+    question: 'How well did I display courage?',
     answer: '7',
     type: 'scaleRating',
   });
@@ -118,8 +119,8 @@ const createQuestions = async () => {
 
 const createFeedback = async (users, questions) => {
   const myFeedback = new Feedback({
-    from: users.chris._id,
     to: users.jane._id,
+    from: users.chris._id,
     questions: questions.map(q => q._id),
   });
 
@@ -133,7 +134,7 @@ const createFeedback = async (users, questions) => {
   await chrisFeedback.save();
 
   const nicoFeedback = new Feedback({
-    to: users.chris._id,
+    to: users.nico._id,
     from: users.jane._id,
     questions: questions.map(q => q._id),
   });

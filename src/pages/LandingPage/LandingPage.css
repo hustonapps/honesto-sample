@@ -1,0 +1,10 @@
+.LandingPageHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center
+}
+
+.LandingPageHeader h1 {
+  font-size: 31px;
+  line-height: 36px;
+}

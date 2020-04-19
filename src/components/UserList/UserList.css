@@ -1,0 +1,34 @@
+.UserList {
+  /* margin-top: 17px; */
+  /* border: 1px solid rgba(125, 125, 125, 0.2); */
+  /* border-radius: 4px; */
+  /* min-height: 300px; */
+  /* box-shadow: 0 0 4px 1px rgba(125, 125, 125, 0.2); */
+}
+
+.UserList .UserRow {
+  min-height: 75px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+  padding: 16px;
+  border: 1px solid rgba(172, 177, 182, 0.33);
+  border-radius: 4px;
+}
+
+.UserList .UserRow .user {
+  display: flex;
+  align-items: center;
+}
+
+.UserList .UserRow .user img {
+  height: 36px;
+}
+
+.UserList .UserRow .user h3 {
+  margin-left: 24px;
+  font-size: 22px;
+  line-height: 26px;
+  color: #59636E;
+}

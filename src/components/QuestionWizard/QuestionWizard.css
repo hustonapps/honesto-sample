@@ -1,0 +1,20 @@
+.QuestionWizard {
+}
+
+.QuestionWizard .QuestionHeader {
+  display: flex;
+  flex-direction: column;
+}
+
+.QuestionWizard .QuestionHeader .question {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.QuestionWizard .QuestionHeader p {
+  text-transform: uppercase;
+  color: #ACB1B6;
+  font-size: 12px;
+  line-height: 14px;
+}
