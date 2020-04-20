@@ -54,39 +54,41 @@ const createQuestions = async (users) => {
     {
       question: 'How well did I display courage?',
       questionType: 'question',
+      skipped: true,
     },
     {
-      question: 'How well did I display courage?',
+      question: 'How well do I display integrity?',
       options: {
         belowAvg: `You may have done one or the following:  Maybe you were mostly quiet in meetings and when you had something on your mind, you brought it to the team afterward. Or, you had feedback that would be valuable to go, but you found it too difficult. Or, you had an opportunity to grow by doing something uncomfortable but you didn’t`,
         avg: 'You sometimes participate in meetings but you feel that they don’t always bring up important things when they should.',
         aboveAvg: 'I and others can count on your courage to help the team do what is right.',
       },
       questionType: 'options',
+      skipped: true,
     },
     {
-      question: 'How well did I display courage?',
+      question: 'How well does X do Y?',
       scaleRatingText: 'Semper fusce purus cras vitae egestas pulvinar inceptos ornare, neque sagittis sodales phasellus suscipit libero nibh convallis, potenti dui magna auctor pellentesque sociis lacus.',
       questionType: 'scaleRating',
+      skipped: true,
     },
     {
-      question: 'How well did I display courage?',
+      question: 'What can I improve?',
       answer: 'Lorem ipsum dolor amet mustache knausgaard +1',
       questionType: 'question',
     },
     {
-      question: 'How well did I display courage?',
+      question: 'How interesting was my report?',
       options: {
         belowAvg: `Missed the bar completely`,
         avg: 'Did exactly what was asked',
         aboveAvg: 'Blew us away',
       },
       answer: 'avg',
-      skipped: true,
       questionType: 'options',
     },
     {
-      question: 'How well did I display courage?',
+      question: 'How would you rate my friendliness?',
       scaleRatingText: 'Penatibus montes netus phasellus vitae nulla felis potenti facilisi, conubia tellus eu maecenas imperdiet eros libero, sed sodales luctus nascetur quisque ultrices turpis.',
       answer: '7',
       questionType: 'scaleRating',
@@ -97,42 +99,41 @@ const createQuestions = async (users) => {
     {
       question: 'How well did I display courage?',
       questionType: 'question',
-      answer: 'Quite well! I was super impressed you fought a grizzly bear!'
+      answer: 'Penatibus montes netus phasellus vitae nulla felis potenti facilisi, conubia tellus eu maecenas imperdiet eros libero, sed sodales luctus nascetur quisque ultrices turpis.'
     },
     {
-      question: 'How well did I display courage?',
+      question: 'How well do I display integrity?',
       options: {
         belowAvg: `You may have done one or the following:  Maybe you were mostly quiet in meetings and when you had something on your mind, you brought it to the team afterward. Or, you had feedback that would be valuable to go, but you found it too difficult. Or, you had an opportunity to grow by doing something uncomfortable but you didn’t`,
         avg: 'You sometimes participate in meetings but you feel that they don’t always bring up important things when they should.',
         aboveAvg: 'I and others can count on your courage to help the team do what is right.',
       },
-      answer: 'avg',
       questionType: 'options',
+      answer: 'avg',
     },
     {
-      question: 'How well did I display courage?',
+      question: 'How well does X do Y?',
       scaleRatingText: 'Semper fusce purus cras vitae egestas pulvinar inceptos ornare, neque sagittis sodales phasellus suscipit libero nibh convallis, potenti dui magna auctor pellentesque sociis lacus.',
       questionType: 'scaleRating',
-      answer: '3',
+      answer: '5',
     },
     {
-      question: 'How well did I display courage?',
+      question: 'What can I improve?',
       answer: 'Lorem ipsum dolor amet mustache knausgaard +1',
       questionType: 'question',
     },
     {
-      question: 'How well did I display courage?',
+      question: 'How interesting was my report?',
       options: {
         belowAvg: `Missed the bar completely`,
         avg: 'Did exactly what was asked',
         aboveAvg: 'Blew us away',
       },
       answer: 'avg',
-      skipped: true,
       questionType: 'options',
     },
     {
-      question: 'How well did I display courage?',
+      question: 'How would you rate my friendliness?',
       scaleRatingText: 'Penatibus montes netus phasellus vitae nulla felis potenti facilisi, conubia tellus eu maecenas imperdiet eros libero, sed sodales luctus nascetur quisque ultrices turpis.',
       answer: '7',
       questionType: 'scaleRating',

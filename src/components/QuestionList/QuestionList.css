@@ -1,0 +1,4 @@
+.QuestionList {
+  display: flex;
+  flex-direction: column;
+}

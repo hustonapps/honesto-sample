@@ -21,6 +21,7 @@ const App = ({ history, match }) => {
           <Route path={`${path}/giveFeedback/:feedbackId`} component={GiveFeedback} />
           <Route path={`${path}/myFeedback`} component={MyFeedbackPage} />
           <Route path={`${path}/teamFeedback:feedbackId`} component={TeamFeedbackPage} />
+          <Route path={`${path}/teamFeedback`} component={TeamFeedbackPage} />
           <Route exact path={path} component={LandingPage} />
         </Switch>
       </main>

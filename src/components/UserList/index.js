@@ -1,9 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import UserRow from './UserRow';
-import './UserList.css';
 
-const UserList = ({ feedbacks, history }) => {
+const UserList = ({
+  feedbacks,
+  history,
+  displayOnly = false,
+  onClickUserRow = () => {},
+  selectedUser,
+}) => {
 
   const onClickFillOut = feedbackId => () => {
     history.push(`/app/giveFeedback/${feedbackId}`);
@@ -18,9 +23,13 @@ const UserList = ({ feedbacks, history }) => {
       {feedbacks.map(feedback => {
         return (
           <UserRow
+            key={feedback._id}
+            displayOnly={displayOnly}
             feedback={feedback}
             onClickFillOut={onClickFillOut}
             onClickViewSubmission={onClickViewSubmission}
+            onClickUserRow={onClickUserRow}
+            selected={feedback._id === selectedUser}
           />
         )
       })}
@@ -31,6 +40,9 @@ const UserList = ({ feedbacks, history }) => {
 UserList.propTypes = {
   feedbacks: PropTypes.array,
   history: PropTypes.object,
+  displayOnly: PropTypes.bool,
+  onClickUserRow: PropTypes.func,
+  selectedUser: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 };
 
 export default UserList;

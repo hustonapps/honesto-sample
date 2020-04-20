@@ -34,6 +34,42 @@ app.get('/api/teamFeedback', async (req, res) => {
   res.json(feedback);
 });
 
+app.get('/api/myFeedback', async (req, res) => {
+  const loggedInUser = await User.findOne({ name: 'Jane Smith' });
+  const feedback = await Question.aggregate([
+    {
+      $match: { to: loggedInUser.name }
+    },
+    {
+      $group: {
+        _id: '$from',
+        entries: {
+          $push: '$$ROOT',
+        },
+      }
+    }
+  ]);
+  res.json(feedback);
+});
+
+app.get('/api/myResponses', async (req, res) => {
+  const loggedInUser = await User.findOne({ name: 'Jane Smith' });
+  const feedback = await Question.aggregate([
+    {
+      $match: { from: loggedInUser.name }
+    },
+    {
+      $group: {
+        _id: '$to',
+        entries: {
+          $push: '$$ROOT',
+        },
+      }
+    }
+  ]);
+  res.json(feedback);
+});
+
 app.get('/api/feedback/:feedbackId', async (req, res) => {
   const feedback = await Question.find({ feedbackId: req.params.feedbackId });
   return res.json(feedback);
@@ -42,7 +78,7 @@ app.get('/api/feedback/:feedbackId', async (req, res) => {
 app.post('/api/feedback/:feedbackId/skip', async (req, res) => {
   try {
     const { questionId } = req.body;
-    await Question.findOneAndUpdate({ feedbackId: req.params.feedbackId, _id: questionId }, { answer: null, skipped: true });
+    await Question.findOneAndUpdate({ feedbackId: req.params.feedbackId, _id: questionId }, { answer: undefined, skipped: true });
   } catch (e) {
     console.error(e);
   } finally {

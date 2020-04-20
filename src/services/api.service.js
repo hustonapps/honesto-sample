@@ -7,3 +7,7 @@ export const getFeedbackById = feedbackId => axios.get(`/api/feedback/${feedback
 export const answerFeedbackQuestion = (feedbackId, questionId, answer) => axios.post(`/api/feedback/${feedbackId}`, { questionId, answer });
 
 export const skipFeedbackQuestion = (feedbackId, questionId, answer) => axios.post(`/api/feedback/${feedbackId}/skip`, { questionId });
+
+export const getMyFeedback = () => axios.get('/api/myFeedback');
+
+export const getMyResponses = () => axios.get('/api/myResponses');

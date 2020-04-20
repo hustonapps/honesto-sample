@@ -1,12 +1,4 @@
-.UserList {
-  /* margin-top: 17px; */
-  /* border: 1px solid rgba(125, 125, 125, 0.2); */
-  /* border-radius: 4px; */
-  /* min-height: 300px; */
-  /* box-shadow: 0 0 4px 1px rgba(125, 125, 125, 0.2); */
-}
-
-.UserList .UserRow {
+.UserRow {
   min-height: 75px;
   display: flex;
   align-items: center;
@@ -17,16 +9,24 @@
   border-radius: 4px;
 }
 
-.UserList .UserRow .user {
+.UserRow.selected {
+  background-color: rgba(213, 176, 242, 0.1);
+}
+
+.UserRow.displayOnly {
+  border-radius: 0px;
+}
+
+.UserRow .user {
   display: flex;
   align-items: center;
 }
 
-.UserList .UserRow .user img {
+.UserRow .user img {
   height: 36px;
 }
 
-.UserList .UserRow .user h3 {
+.UserRow .user h3 {
   margin-left: 24px;
   font-size: 22px;
   line-height: 26px;
