@@ -105,9 +105,9 @@ const QuestionWizard = ({ history, questions, to }) => {
       <div className="QuestionHeader">
         <div className="question">
           <h2>{currentQuestion.question}</h2>
-          <img src={userAvatarMap[to.name]} alt={to.name} />
+          <img src={userAvatarMap[to]} alt={to} />
         </div>
-        <p>{`Share your feedback with ${to.name}`}</p>
+        <p>{`Share your feedback with ${to}`}</p>
       </div>
       <div className="QuestionContainer">
         {renderQuestionContainer()}

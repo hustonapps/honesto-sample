@@ -6,6 +6,7 @@ import { initializeIcons } from '@uifabric/icons';
 import './index.css';
 import App from './pages/App';
 import Login from './pages/Login';
+import NotFound from './pages/NotFound/Login';
 import * as serviceWorker from './serviceWorker';
 
 loadTheme({

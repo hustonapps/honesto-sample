@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
 import PageHeader from '../../components/PageHeader';
 import FeedbackContainer from '../../components/FeedbackContainer';
 import { getMyResponses } from '../../services/api.service';
 
-const TeamFeedbackPage = () => {
+const TeamFeedbackPage = ({ match }) => {
   const [state, setState] = useState({
     loading: true,
     feedback: null,
@@ -28,9 +29,13 @@ const TeamFeedbackPage = () => {
   return (
     <div>
       <PageHeader title="Team Feedback" showSubmitButton />
-      <FeedbackContainer feedback={state.feedback} />
+      <FeedbackContainer feedback={state.feedback} user={match.params.feedbackId} />
     </div>
   );
 }
+
+TeamFeedbackPage.propTypes = {
+  match: PropTypes.object.isRequired,
+};
 
 export default TeamFeedbackPage;

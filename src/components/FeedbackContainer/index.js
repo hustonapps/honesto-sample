@@ -4,7 +4,7 @@ import UserList from '../../components/UserList';
 import QuestionList from '../../components/QuestionList';
 import './FeedbackContainer.css';
 
-const FeedbackContainer = ({ feedback = [] }) => {
+const FeedbackContainer = ({ feedback = [], user }) => {
   const [selected, setSelected] = useState(null);
 
   const setSelectedUser = user => {
@@ -20,10 +20,10 @@ const FeedbackContainer = ({ feedback = [] }) => {
   useEffect(() => {
     if (feedback) {
       if (!selected) {
-        setSelected(feedback[0]);
+        setSelected(feedback.find(f => f._id === user) || feedback[0]);
       }
     }
-  }, [feedback, selected]);
+  }, [feedback, selected, user]);
 
   if (!feedback || !feedback.length) {
     return null;
@@ -52,6 +52,7 @@ const FeedbackContainer = ({ feedback = [] }) => {
 
 FeedbackContainer.propTypes = {
   feedback: PropTypes.array,
+  user: PropTypes.string,
 };
 
 export default FeedbackContainer;

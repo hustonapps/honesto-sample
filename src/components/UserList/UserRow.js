@@ -32,7 +32,7 @@ const UserRow = ({
         <PrimaryButton text="Fill Out" styles={styles.button} onClick={onClickFillOut(feedback._id)} />
       )}
       {!displayOnly && isComplete && (
-        <DefaultButton text="View Submission" onClick={onClickViewSubmission(feedback._id)} />
+        <DefaultButton text="View Submission" onClick={onClickViewSubmission(feedback.entries[0].to)} />
       )}
     </div>
   );
