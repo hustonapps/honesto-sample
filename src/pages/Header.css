@@ -37,6 +37,24 @@
   color: #031323;
   font-size: 16px;
   padding: 24px;
+  position: relative;
+}
+
+.SiteHeader .alert {
+  font-size: 11px;
+  border-radius: 50px;
+  background-color: #AB61E5;
+  position: absolute;
+  color: #fff;
+  width: 16px;
+  height: 16px;
+  padding: 2px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 5px;
+  right: 0;
+  box-sizing: border-box;
 }
 
 .SiteHeader nav .userLinks {

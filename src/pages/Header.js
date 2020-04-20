@@ -14,8 +14,8 @@ const Header = ({ history }) => {
       <nav>
         <h1>Honesto</h1>
         <ul className="links">
-          <li><NavLink exact to="/app" activeStyle={activeStyle}>Share Feedback</NavLink></li>
-          <li><NavLink to="/app/myFeedback" activeStyle={activeStyle}>My Feedback</NavLink></li>
+          <li><NavLink exact to="/app" activeStyle={activeStyle}>Share Feedback <span className="alert">4</span></NavLink></li>
+          <li><NavLink to="/app/myFeedback" activeStyle={activeStyle}>My Feedback<span className="alert">3</span></NavLink></li>
           <li><NavLink to="/app/teamFeedback" activeStyle={activeStyle}>Team Feedback</NavLink></li>
           <li><NavLink to="/app/teams" activeStyle={activeStyle}>Teams</NavLink></li>
         </ul>
