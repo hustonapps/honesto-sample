@@ -6,7 +6,7 @@ const connectDb = () => {
   if (process.env.NODE_ENV === 'localdev') {
     return mongoose.connect('mongodb://localhost:27017/honesto', { useNewUrlParser: true, useUnifiedTopology: true });
   }
-  return mongoose.connect(`mongodb+srv://${process.env.DATABASE_USER}:${process.env.DATABASE_PW}@cluster0-pe3dr.mongodb.net/test?retryWrites=true&w=majority`, { useNewUrlParser: true, useUnifiedTopology: true });
+  return mongoose.connect(`mongodb+srv://${process.env.DATABASE_USER}:${process.env.DATABASE_PW}@cluster0-kqfcq.mongodb.net/test?retryWrites=true&w=majority`, { useNewUrlParser: true, useUnifiedTopology: true });
 };
 
 const createUsers = async () => {
